@@ -1,38 +1,30 @@
 part of '../../entities.dart';
 
 class Animation {
+  @SerialName('file_id')
   String fileId;
+
+  @SerialName('file_unique_id')
   String fileUniqueId;
+
+  @SerialName('width')
   int width;
+
+  @SerialName('height')
   int height;
+
+  @SerialName('duration')
   int duration;
+
+  @SerialName('thumb')
   PhotoSize thumb;
+
+  @SerialName('file_name')
   String fileName;
+
+  @SerialName('mime_type')
   String mimeType;
+
+  @SerialName('file_size')
   int fileSize;
-
-  Animation(
-      {this.fileId,
-      this.fileUniqueId,
-      this.width,
-      this.height,
-      this.duration,
-      this.thumb,
-      this.fileName,
-      this.mimeType,
-      this.fileSize});
-
-  factory Animation.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Animation(
-        fileId: json['file_id'],
-        fileUniqueId: json['file_unique_id'],
-        width: json['width'],
-        height: json['height'],
-        duration: json['duration'],
-        thumb: PhotoSize.fromJson(json['thumb']),
-        fileName: json['file_name'],
-        mimeType: json['mime_type'],
-        fileSize: json['file_size']);
-  }
 }

@@ -1,72 +1,53 @@
 part of '../../entities.dart';
 
 class InlineKeyboardButton {
+  @SerialName('text')
   String text;
+
+  @SerialName('url')
   String url;
-  LoginUrl login_url;
-  String callback_data;
-  String switch_inline_query;
-  String switch_inline_query_current_chat;
-  CallbackGame callback_game;
+
+  @SerialName('login_url')
+  LoginUrl loginUrl;
+
+  @SerialName('callback_data')
+  String callbackData;
+
+  @SerialName('switch_inline_query')
+  String switchInlineQuery;
+
+  @SerialName('switch_inline_query_current_chat')
+  String switchInlineQueryCurrentChat;
+
+  @SerialName('callback_game')
+  CallbackGame callbackGame;
+
+  @SerialName('pay')
   bool pay;
 
-  InlineKeyboardButton._(this.text,
-      {this.url,
-      this.login_url,
-      this.callback_data,
-      this.switch_inline_query,
-      this.switch_inline_query_current_chat,
-      this.callback_game,
+  InlineKeyboardButton();
+
+  InlineKeyboardButton._(
+      {this.text,
+      this.url,
+      this.loginUrl,
+      this.callbackData,
+      this.switchInlineQuery,
+      this.switchInlineQueryCurrentChat,
+      this.callbackGame,
       this.pay});
 
   InlineKeyboardButton.URL(this.text, this.url);
 
-  InlineKeyboardButton.LoginURL(this.text, this.login_url);
+  InlineKeyboardButton.LoginURL(this.text, this.loginUrl);
 
-  InlineKeyboardButton.CallbackData(this.text, this.callback_data);
+  InlineKeyboardButton.CallbackData(this.text, this.callbackData);
 
-  InlineKeyboardButton.SwitchInlineQuery(this.text, this.switch_inline_query);
+  InlineKeyboardButton.SwitchInlineQuery(this.text, this.switchInlineQuery);
 
-  InlineKeyboardButton.SwitchInlineQueryCurrentChat(this.text, this.switch_inline_query_current_chat);
+  InlineKeyboardButton.SwitchInlineQueryCurrentChat(this.text, this.switchInlineQueryCurrentChat);
 
-  InlineKeyboardButton.CallbackGame(this.text, this.callback_game);
+  InlineKeyboardButton.CallbackGame(this.text, this.callbackGame);
 
   InlineKeyboardButton.Pay(this.text, this.pay);
-
-  Map toJson() {
-    var data = {};
-    data['text'] = text;
-    data['url'] = url;
-    data['login_url'] = login_url;
-    data['callback_data'] = callback_data;
-    data['switch_inline_query'] = switch_inline_query;
-    data['switch_inline_query_current_chat'] = switch_inline_query_current_chat;
-    data['callback_game'] = callback_game;
-    data['pay'] = pay;
-    data.removeWhere((k, v) => v == null);
-    return data;
-  }
-
-  factory InlineKeyboardButton.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return InlineKeyboardButton._(json['text'],
-        url: json['url'],
-        login_url: LoginUrl.fromJson(json['login_url']),
-        callback_data: json['callback_data'],
-        switch_inline_query: json['switch_inline_query'],
-        switch_inline_query_current_chat: json['switch_inline_query_current_chat'],
-        callback_game: CallbackGame.fromJson(json['callback_game']),
-        pay: json['pay']);
-  }
-
-  static List<InlineKeyboardButton> listFromJsonArray(List<dynamic> json) {
-    if (json == null) return null;
-    return List.generate(json.length, (i) => InlineKeyboardButton.fromJson(json[i]));
-  }
-
-  static List<List<InlineKeyboardButton>> listOfListsFromJsonArray(List<dynamic> json) {
-    if (json == null) return null;
-    return List.generate(
-        json.length, (e) => List.generate(json[e].length, (i) => InlineKeyboardButton.fromJson(json[e][i])));
-  }
 }

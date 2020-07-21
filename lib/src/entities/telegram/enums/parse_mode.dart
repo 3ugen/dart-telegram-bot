@@ -1,5 +1,6 @@
 part of '../../../entities.dart';
 
+@serialToString
 class ParseMode {
   String _mode;
 

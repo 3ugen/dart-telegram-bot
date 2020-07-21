@@ -1,38 +1,30 @@
 part of '../../entities.dart';
 
 class Poll {
+  @SerialName('id')
   String id;
+
+  @SerialName('question')
   String question;
+
+  @SerialName('options')
   List<PollOption> options;
+
+  @SerialName('total_voter_count')
   int totalVoterCount;
+
+  @SerialName('is_closed')
   bool isClosed;
+
+  @SerialName('is_anonymous')
   bool isAnonymous;
-  PollType type;
+
+  @SerialName('type')
+  String type;
+
+  @SerialName('allows_multiple_answers')
   bool allowsMultipleAnswers;
+
+  @SerialName('correct_option_id')
   int correctOptionId;
-
-  Poll(
-      {this.id,
-      this.question,
-      this.options,
-      this.totalVoterCount,
-      this.isClosed,
-      this.isAnonymous,
-      this.type,
-      this.allowsMultipleAnswers,
-      this.correctOptionId});
-
-  factory Poll.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Poll(
-        id: json['id'],
-        question: json['question'],
-        options: PollOption.listFromJsonArray(json['options']),
-        totalVoterCount: json['total_voter_count'],
-        isClosed: json['is_closed'],
-        isAnonymous: json['is_anonymous'],
-        type: PollType.fromString(json['type']),
-        allowsMultipleAnswers: json['allows_multiple_answers'],
-        correctOptionId: json['correct_option_id']);
-  }
 }

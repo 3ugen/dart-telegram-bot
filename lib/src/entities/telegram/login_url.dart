@@ -1,19 +1,15 @@
 part of '../../entities.dart';
 
 class LoginUrl {
+  @SerialName('url')
   String url;
+
+  @SerialName('forward_text')
   String forwardText;
+
+  @SerialName('bot_username')
   String botUsername;
+
+  @SerialName('request_write_access')
   bool requestWriteAccess;
-
-  LoginUrl({this.url, this.forwardText, this.botUsername, this.requestWriteAccess});
-
-  factory LoginUrl.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return LoginUrl(
-        url: json['url'],
-        forwardText: json['forward_text'],
-        botUsername: json['bot_username'],
-        requestWriteAccess: json['request_write_access']);
-  }
 }

@@ -1,41 +1,30 @@
 part of '../../entities.dart';
 
 class InputMediaVideo extends InputMedia {
+  @SerialName('type')
   String type;
+
+  @SerialName('media')
   String media;
+
+  @SerialName('thumb')
   HttpFile thumb;
+
+  @SerialName('caption')
   String caption;
+
+  @SerialName('parse_mode')
   String parseMode;
+
+  @SerialName('width')
   int width;
+
+  @SerialName('height')
   int height;
+
+  @SerialName('duration')
   int duration;
+
+  @SerialName('supports_streaming')
   bool supportsStreaming;
-
-  InputMediaVideo(
-      {this.type,
-      this.media,
-      this.thumb,
-      this.caption,
-      this.parseMode,
-      this.width,
-      this.height,
-      this.duration,
-      this.supportsStreaming});
-
-  factory InputMediaVideo.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return InputMediaVideo(
-        type: json['type'],
-        media: json['media'],
-        thumb: json['thumb'],
-        caption: json['caption'],
-        parseMode: json['parse_mode'],
-        width: json['width'],
-        height: json['height'],
-        duration: json['duration'],
-        supportsStreaming: json['supports_streaming']);
-  }
-
-// TODO implement toJson
-
 }

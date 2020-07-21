@@ -1,23 +1,21 @@
 part of '../../entities.dart';
 
 class Document {
+  @SerialName('file_id')
   String fileId;
+
+  @SerialName('file_unique_id')
   String fileUniqueId;
+
+  @SerialName('thumb')
   PhotoSize thumb;
+
+  @SerialName('file_name')
   String fileName;
+
+  @SerialName('mime_type')
   String mimeType;
+
+  @SerialName('file_size')
   int fileSize;
-
-  Document({this.fileId, this.fileUniqueId, this.thumb, this.fileName, this.mimeType, this.fileSize});
-
-  factory Document.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Document(
-        fileId: json['file_id'],
-        fileUniqueId: json['file_unique_id'],
-        thumb: PhotoSize.fromJson(json['thumb']),
-        fileName: json['file_name'],
-        mimeType: json['mime_type'],
-        fileSize: json['file_size']);
-  }
 }

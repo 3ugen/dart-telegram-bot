@@ -1,33 +1,24 @@
 part of '../../entities.dart';
 
 class PreCheckoutQuery {
+  @SerialName('id')
   String id;
+
+  @SerialName('from')
   User from;
+
+  @SerialName('currency')
   String currency;
+
+  @SerialName('total_amount')
   int totalAmount;
+
+  @SerialName('invoice_payload')
   String invoicePayload;
+
+  @SerialName('shipping_option_id')
   String shippingOptionId;
+
+  @SerialName('order_info')
   OrderInfo orderInfo;
-
-  PreCheckoutQuery(
-      {this.id,
-      this.from,
-      this.currency,
-      this.totalAmount,
-      this.invoicePayload,
-      this.shippingOptionId,
-      this.orderInfo});
-
-  factory PreCheckoutQuery.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return PreCheckoutQuery(
-      id: json['id'],
-      from: json['from'],
-      currency: json['currency'],
-      totalAmount: json['total_amount'],
-      invoicePayload: json['invoice_payload'],
-      shippingOptionId: json['shipping_option_id'],
-      orderInfo: json['order_info'],
-    );
-  }
 }

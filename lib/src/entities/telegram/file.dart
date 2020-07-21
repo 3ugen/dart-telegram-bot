@@ -1,19 +1,15 @@
 part of '../../entities.dart';
 
 class File {
+  @SerialName('file_id')
   String fileId;
+
+  @SerialName('file_unique_id')
   String fileUniqueId;
+
+  @SerialName('file_size')
   int fileSize;
+
+  @SerialName('file_path')
   String filePath;
-
-  File({this.fileId, this.fileUniqueId, this.fileSize, this.filePath});
-
-  factory File.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return File(
-        fileId: json['file_id'],
-        fileUniqueId: json['file_unique_id'],
-        fileSize: json['file_size'],
-        filePath: json['file_path']);
-  }
 }

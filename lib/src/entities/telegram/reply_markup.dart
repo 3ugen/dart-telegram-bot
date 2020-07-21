@@ -1,3 +1,4 @@
 part of '../../entities.dart';
 
-class ReplyMarkup {}
+class ReplyMarkup {
+}

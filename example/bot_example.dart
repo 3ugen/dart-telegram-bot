@@ -63,8 +63,7 @@ class ExampleBot extends Bot {
               InlineQueryResultArticle(
                   '1',
                   text,
-                  InputTextMessageContent('[${text}](https://www.youtube.com/results?search_query=Zekk+-+TOMOYO)',
-                      parseMode: 'Markdown'))
+                  InputTextMessageContent('[${text}](https://www.youtube.com/results?search_query=Zekk+-+TOMOYO)', parseMode: 'Markdown'))
             ],
             cacheTime: 0);
       }

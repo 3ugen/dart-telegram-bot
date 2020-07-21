@@ -1,17 +1,18 @@
 part of '../../entities.dart';
 
 class ChosenInlineResult {
+  @SerialName('result_id')
   String resultId;
+
+  @SerialName('from')
   User from;
+
+  @SerialName('location')
   Location location;
+
+  @SerialName('inline_message_id')
   String inlineMessageId;
+
+  @SerialName('query')
   String query;
-
-  ChosenInlineResult(this.resultId, this.from, this.query, {this.location, this.inlineMessageId});
-
-  factory ChosenInlineResult.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return ChosenInlineResult(json['result_id'], User.fromJson(json['from']), json['query'],
-        location: Location.fromJson(json['location']), inlineMessageId: json['inline_message_id']);
-  }
 }

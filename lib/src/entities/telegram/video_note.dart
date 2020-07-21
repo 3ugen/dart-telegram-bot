@@ -1,23 +1,21 @@
 part of '../../entities.dart';
 
 class VideoNote {
+  @SerialName('file_id')
   String fileId;
+
+  @SerialName('file_unique_id')
   String fileUniqueId;
+
+  @SerialName('length')
   int length;
+
+  @SerialName('duration')
   int duration;
+
+  @SerialName('thumb')
   PhotoSize thumb;
+
+  @SerialName('file_size')
   int fileSize;
-
-  VideoNote({this.fileId, this.fileUniqueId, this.length, this.duration, this.thumb, this.fileSize});
-
-  factory VideoNote.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return VideoNote(
-        fileId: json['file_id'],
-        fileUniqueId: json['file_unique_id'],
-        length: json['length'],
-        duration: json['duration'],
-        thumb: PhotoSize.fromJson(json['thumb']),
-        fileSize: json['file_size']);
-  }
 }

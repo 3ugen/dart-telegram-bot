@@ -1,13 +1,9 @@
 part of '../../entities.dart';
 
 class Location {
+  @SerialName('longitude')
   double longitude;
+
+  @SerialName('latitude')
   double latitude;
-
-  Location({this.longitude, this.latitude});
-
-  factory Location.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Location(longitude: json['longitude'], latitude: json['latitude']);
-  }
 }

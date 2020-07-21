@@ -1,21 +1,18 @@
 part of '../../entities.dart';
 
 class Invoice {
+  @SerialName('title')
   String title;
+
+  @SerialName('description')
   String description;
+
+  @SerialName('start_parameter')
   String startParameter;
+
+  @SerialName('currency')
   String currency;
+
+  @SerialName('total_amount')
   int totalAmount;
-
-  Invoice({this.title, this.description, this.startParameter, this.currency, this.totalAmount});
-
-  factory Invoice.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Invoice(
-        title: json['title'],
-        description: json['description'],
-        startParameter: json['start_parameter'],
-        currency: json['currency'],
-        totalAmount: json['total_amount']);
-  }
 }

@@ -1,21 +1,18 @@
 part of '../../entities.dart';
 
 class StickerSet {
+  @SerialName('name')
   String name;
+
+  @SerialName('title')
   String title;
+
+  @SerialName('is_animated')
   bool isAnimated;
+
+  @SerialName('contains_masks')
   bool containsMasks;
+
+  @SerialName('stickers')
   List<Sticker> stickers;
-
-  StickerSet({this.name, this.title, this.isAnimated, this.containsMasks, this.stickers});
-
-  factory StickerSet.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return StickerSet(
-        name: json['name'],
-        title: json['title'],
-        isAnimated: json['is_animated'],
-        containsMasks: json['contains_masks'],
-        stickers: Sticker.listFromJsonArray(json['stickers']));
-  }
 }

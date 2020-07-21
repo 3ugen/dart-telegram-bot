@@ -1,54 +1,47 @@
 part of '../../entities.dart';
 
 class Chat {
+
+  @SerialName('id')
   int id;
+
+  @SerialName('type')
   String type;
+
+  @SerialName('title')
   String title;
+
+  @SerialName('username')
   String username;
+
+  @SerialName('first_name')
   String firstName;
+
+  @SerialName('last_name')
   String lastName;
+
+  @SerialName('photo')
   ChatPhoto photo;
+
+  @SerialName('description')
   String description;
+
+  @SerialName('invite_link')
   String inviteLink;
+
+  @SerialName('pinned_message')
   Message pinnedMessage;
+
+  @SerialName('permissions')
   ChatPermissions permissions;
+
+  @SerialName('slow_mode_delay')
   int slowModeDelay;
+
+  @SerialName('sticker_set_name')
   String stickerSetName;
+
+  @SerialName('can_set_sticker_set')
   bool canSetStickerSet;
 
-  Chat(
-      {this.id,
-      this.type,
-      this.title,
-      this.username,
-      this.firstName,
-      this.lastName,
-      this.photo,
-      this.description,
-      this.inviteLink,
-      this.pinnedMessage,
-      this.permissions,
-      this.slowModeDelay,
-      this.stickerSetName,
-      this.canSetStickerSet});
-
-  factory Chat.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Chat(
-      id: json['id'],
-      type: json['type'],
-      title: json['title'],
-      username: json['username'],
-      firstName: json['first_name'],
-      lastName: json['last_name'],
-      photo: ChatPhoto.fromJson(json['photo']),
-      description: json['description'],
-      inviteLink: json['invite_link'],
-      pinnedMessage: Message.fromJson(json['pinned_message']),
-      permissions: ChatPermissions.fromJson(json['permissions']),
-      slowModeDelay: json['slow_mode_delay'],
-      stickerSetName: json['sticker_set_name'],
-      canSetStickerSet: json['can_set_sticker_set'],
-    );
-  }
 }

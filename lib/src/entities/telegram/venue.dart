@@ -1,21 +1,18 @@
 part of '../../entities.dart';
 
 class Venue {
+  @SerialName('location')
   Location location;
+
+  @SerialName('title')
   String title;
+
+  @SerialName('address')
   String address;
+
+  @SerialName('foursquare_id')
   String foursquareId;
+
+  @SerialName('foursquare_type')
   String foursquareType;
-
-  Venue({this.location, this.title, this.address, this.foursquareId, this.foursquareType});
-
-  factory Venue.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Venue(
-        location: Location.fromJson(json['location']),
-        title: json['title'],
-        address: json['address'],
-        foursquareId: json['foursquare_id'],
-        foursquareType: json['foursquare_type']);
-  }
 }

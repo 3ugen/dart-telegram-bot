@@ -1,24 +1,21 @@
 part of '../../entities.dart';
 
 class Game {
+  @SerialName('title')
   String title;
+
+  @SerialName('description')
   String description;
+
+  @SerialName('photo')
   List<PhotoSize> photo;
+
+  @SerialName('text')
   String text;
+
+  @SerialName('text_entities')
   List<MessageEntity> textEntities;
+
+  @SerialName('animation')
   Animation animation;
-
-  Game({this.title, this.description, this.photo, this.text, this.textEntities, this.animation});
-
-  factory Game.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Game(
-      title: json['title'],
-      description: json['description'],
-      photo: PhotoSize.listFromJsonArray(json['photo']),
-      text: json['text'],
-      textEntities: MessageEntity.listFromJsonArray(json['text_entities']),
-      animation: Animation.fromJson(json['animation']),
-    );
-  }
 }

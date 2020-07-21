@@ -1,23 +1,21 @@
 part of '../../entities.dart';
 
 class ShippingAddress {
+  @SerialName('country_code')
   String countryCode;
+
+  @SerialName('state')
   String state;
+
+  @SerialName('city')
   String city;
+
+  @SerialName('street_line_1')
   String streetLine1;
+
+  @SerialName('street_line_2')
   String streetLine2;
+
+  @SerialName('post_code')
   String postCode;
-
-  ShippingAddress({this.countryCode, this.state, this.city, this.streetLine1, this.streetLine2, this.postCode});
-
-  factory ShippingAddress.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return ShippingAddress(
-        countryCode: json['country_code'],
-        state: json['state'],
-        city: json['city'],
-        streetLine1: json['street_line1'],
-        streetLine2: json['street_line2'],
-        postCode: json['post_code']);
-  }
 }

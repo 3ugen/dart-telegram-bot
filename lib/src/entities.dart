@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io' as io;
 import 'dart:typed_data';
 
+import 'package:kson/kson.dart';
+
 part 'entities/internal/bot_command_parser.dart';
 part 'entities/internal/chat_id.dart';
 part 'entities/internal/http_file.dart';

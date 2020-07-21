@@ -1,21 +1,18 @@
 part of '../../entities.dart';
 
 class Contact {
+  @SerialName('phone_number')
   String phoneNumber;
+
+  @SerialName('first_name')
   String firstName;
+
+  @SerialName('last_name')
   String lastName;
+
+  @SerialName('user_id')
   int userId;
+
+  @SerialName('vcard')
   String vcard;
-
-  Contact({this.phoneNumber, this.firstName, this.lastName, this.userId, this.vcard});
-
-  factory Contact.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Contact(
-        phoneNumber: json['phone_number'],
-        firstName: json['first_name'],
-        lastName: json['last_name'],
-        userId: json['user_id'],
-        vcard: json['vcard']);
-  }
 }

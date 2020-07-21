@@ -1,21 +1,19 @@
 part of '../../entities.dart';
 
 class Voice {
+  @SerialName('file_id')
   String fileId;
+
+  @SerialName('file_unique_id')
   String fileUniqueId;
+
+  @SerialName('duration')
   int duration;
+
+  @SerialName('mime_type')
   String mimeType;
+
+  @SerialName('file_size')
   int fileSize;
 
-  Voice({this.fileId, this.fileUniqueId, this.duration, this.mimeType, this.fileSize});
-
-  factory Voice.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Voice(
-        fileId: json['file_id'],
-        fileUniqueId: json['file_unique_id'],
-        duration: json['duration'],
-        mimeType: json['mime_type'],
-        fileSize: json['file_size']);
-  }
 }

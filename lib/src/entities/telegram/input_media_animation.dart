@@ -1,31 +1,27 @@
 part of '../../entities.dart';
 
 class InputMediaAnimation extends InputMedia {
+  @SerialName('type')
   String type;
+
+  @SerialName('media')
   String media; // TODO not implemented
+
+  @SerialName('thumb')
   HttpFile thumb;
+
+  @SerialName('caption')
   String caption;
+
+  @SerialName('parse_mode')
   String parseMode;
+
+  @SerialName('width')
   int width;
+
+  @SerialName('height')
   int height;
+
+  @SerialName('duration')
   int duration;
-
-  InputMediaAnimation(
-      {this.type, this.media, this.thumb, this.caption, this.parseMode, this.width, this.height, this.duration});
-
-  factory InputMediaAnimation.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return InputMediaAnimation(
-        type: json['type'],
-        media: json['media'],
-        thumb: json['thumb'],
-        caption: json['caption'],
-        parseMode: json['parse_mode'],
-        width: json['width'],
-        height: json['height'],
-        duration: json['duration']);
-  }
-
-// TODO implement toJson
-
 }

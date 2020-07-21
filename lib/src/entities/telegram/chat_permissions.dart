@@ -1,35 +1,27 @@
 part of '../../entities.dart';
 
 class ChatPermissions {
+  @SerialName('can_send_messages')
   bool canSendMessages;
+
+  @SerialName('can_send_media_messages')
   bool canSendMediaMessages;
+
+  @SerialName('can_send_polls')
   bool canSendPolls;
+
+  @SerialName('can_send_other_messages')
   bool canSendOtherMessages;
+
+  @SerialName('can_add_web_page_previews')
   bool canAddWebPagePreviews;
+
+  @SerialName('can_change_info')
   bool canChangeInfo;
+
+  @SerialName('can_invite_users')
   bool canInviteUsers;
+
+  @SerialName('can_pin_messages')
   bool canPinMessages;
-
-  ChatPermissions(
-      {this.canSendMessages,
-      this.canSendMediaMessages,
-      this.canSendPolls,
-      this.canSendOtherMessages,
-      this.canAddWebPagePreviews,
-      this.canChangeInfo,
-      this.canInviteUsers,
-      this.canPinMessages});
-
-  factory ChatPermissions.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return ChatPermissions(
-        canSendMessages: json['can_send_messages'],
-        canSendMediaMessages: json['can_send_media_messages'],
-        canSendPolls: json['can_send_polls'],
-        canSendOtherMessages: json['can_send_other_messages'],
-        canAddWebPagePreviews: json['can_add_web_page_previews'],
-        canChangeInfo: json['can_change_info'],
-        canInviteUsers: json['can_invite_users'],
-        canPinMessages: json['can_pin_messages']);
-  }
 }

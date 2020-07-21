@@ -1,44 +1,30 @@
 part of '../../entities.dart';
 
 class Sticker {
+  @SerialName('emoji')
   String emoji;
+
+  @SerialName('file_id')
   String fileId;
+
+  @SerialName('file_size')
   int fileSize;
+
+  @SerialName('file_unique_id')
   String fileUniqueId;
+
+  @SerialName('height')
   int height;
+
+  @SerialName('is_animated')
   bool isAnimated;
+
+  @SerialName('set_name')
   String setName;
+
+  @SerialName('thumb')
   PhotoSize thumb;
+
+  @SerialName('width')
   int width;
-
-  Sticker(
-      {this.emoji,
-      this.fileId,
-      this.fileSize,
-      this.fileUniqueId,
-      this.height,
-      this.isAnimated,
-      this.setName,
-      this.thumb,
-      this.width});
-
-  factory Sticker.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Sticker(
-      emoji: json['emoji'],
-      fileId: json['file_id'],
-      fileSize: json['file_size'],
-      fileUniqueId: json['file_unique_id'],
-      height: json['height'],
-      isAnimated: json['is_animated'],
-      setName: json['set_name'],
-      thumb: json['thumb'] = PhotoSize.fromJson(json['thumb']),
-      width: json['width'],
-    );
-  }
-
-  static List<Sticker> listFromJsonArray(List<dynamic> json) {
-    if (json == null) return null;
-    return List.generate(json.length, (i) => Sticker.fromJson(json[i]));
-  }
 }

@@ -8,6 +8,8 @@ environment:
 
 dependencies:
   http: ^0.12.0+4
+  kson:
+    path: "C:/Users/Kaikyu/IdeaProjects/kson"
 
 dev_dependencies:
   pedantic: ^1.8.0

@@ -1,19 +1,15 @@
 part of '../../entities.dart';
 
 class ChatPhoto {
+  @SerialName('small_file_id')
   String smallFileId;
+
+  @SerialName('small_file_unique_id')
   String smallFileUniqueId;
+
+  @SerialName('big_file_id')
   String bigFileId;
+
+  @SerialName('big_file_unique_id')
   String bigFileUniqueId;
-
-  ChatPhoto({this.smallFileId, this.smallFileUniqueId, this.bigFileId, this.bigFileUniqueId});
-
-  factory ChatPhoto.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return ChatPhoto(
-        smallFileId: json['small_file_id'],
-        smallFileUniqueId: json['small_file_unique_id'],
-        bigFileId: json['big_file_id'],
-        bigFileUniqueId: json['big_file_unique_id']);
-  }
 }

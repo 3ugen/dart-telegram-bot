@@ -1,44 +1,30 @@
 part of '../../entities.dart';
 
 class User {
+  @SerialName('id')
   int id;
+
+  @SerialName('is_bot')
   bool isBot;
+
+  @SerialName('first_name')
   String firstName;
+
+  @SerialName('last_name')
   String lastName;
+
+  @SerialName('username')
   String username;
+
+  @SerialName('language_code')
   String languageCode;
 
+  @SerialName('can_join_groups')
   bool canJoinGroups;
+
+  @SerialName('can_read_all_group_messages')
   bool canReadAllGroupMessages;
+
+  @SerialName('supports_inline_queries')
   bool supportsInlineQueries;
-
-  User(
-      {this.canJoinGroups,
-      this.canReadAllGroupMessages,
-      this.firstName,
-      this.lastName,
-      this.id,
-      this.isBot,
-      this.supportsInlineQueries,
-      this.username,
-      this.languageCode});
-
-  factory User.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return User(
-        canJoinGroups: json['can_join_groups'],
-        canReadAllGroupMessages: json['can_read_all_group_messages'],
-        firstName: json['first_name'],
-        lastName: json['last_name'],
-        id: json['id'],
-        isBot: json['is_bot'],
-        supportsInlineQueries: json['supports_inline_queries'],
-        username: json['username'],
-        languageCode: json['language_code']);
-  }
-
-  static List<User> listFromJsonArray(List<dynamic> json) {
-    if (json == null) return null;
-    return List.generate(json.length, (i) => User.fromJson(json[i]));
-  }
 }

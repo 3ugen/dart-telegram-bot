@@ -1,35 +1,27 @@
 part of '../../entities.dart';
 
 class Audio {
+  @SerialName('file_id')
   String fileId;
+
+  @SerialName('file_unique_id')
   String fileUniqueId;
+
+  @SerialName('duration')
   int duration;
+
+  @SerialName('performer')
   String performer;
+
+  @SerialName('title')
   String title;
+
+  @SerialName('mime_type')
   String mimeType;
+
+  @SerialName('file_size')
   int fileSize;
+
+  @SerialName('thumb')
   PhotoSize thumb;
-
-  Audio(
-      {this.fileId,
-      this.fileUniqueId,
-      this.duration,
-      this.performer,
-      this.title,
-      this.mimeType,
-      this.fileSize,
-      this.thumb});
-
-  factory Audio.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Audio(
-        fileId: json['file_id'],
-        fileUniqueId: json['file_unique_id'],
-        duration: json['duration'],
-        performer: json['performer'],
-        title: json['title'],
-        mimeType: json['mime_type'],
-        fileSize: json['file_size'],
-        thumb: PhotoSize.fromJson(json['thumb']));
-  }
 }

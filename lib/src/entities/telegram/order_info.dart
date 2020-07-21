@@ -1,19 +1,15 @@
 part of '../../entities.dart';
 
 class OrderInfo {
+  @SerialName('name')
   String name;
+
+  @SerialName('phone_number')
   String phoneNumber;
+
+  @SerialName('email')
   String email;
+
+  @SerialName('shipping_address')
   ShippingAddress shippingAddress;
-
-  OrderInfo({this.name, this.phoneNumber, this.email, this.shippingAddress});
-
-  factory OrderInfo.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return OrderInfo(
-        name: json['name'],
-        phoneNumber: json['phone_number'],
-        email: json['email'],
-        shippingAddress: json['shipping_address']);
-  }
 }

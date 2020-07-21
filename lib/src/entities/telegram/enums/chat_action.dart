@@ -1,5 +1,6 @@
 part of '../../../entities.dart';
 
+@serialToString
 class ChatAction {
   // FIXME find a better way to handle this kind of enum, it works but ugh...
   static final ChatAction TYPING = ChatAction._('TYPING');

@@ -1,50 +1,51 @@
 part of '../../../entities.dart';
 
 class InlineQueryResultArticle extends InlineQueryResult {
+  @SerialName('type')
   String type = 'article';
+
+  @SerialName('id')
   String id;
+
+  @SerialName('title')
   String title;
+
+  @SerialName('input_message_content')
   InputMessageContent inputMessageContent;
+
+  @SerialName('reply_markup')
   InlineKeyboardMarkup replyMarkup;
+
+  @SerialName('url')
   String url;
+
+  @SerialName('hide_url')
   bool hideUrl;
+
+  @SerialName('description')
   String description;
+
+  @SerialName('thumb_url')
   String thumbUrl;
+
+  @SerialName('thumb_width')
   int thumbWidth;
+
+  @SerialName('thumb_height')
   int thumbHeight;
 
-  InlineQueryResultArticle(this.id, this.title, this.inputMessageContent,
-      {this.replyMarkup, this.url, this.hideUrl, this.description, this.thumbUrl, this.thumbWidth, this.thumbHeight});
+  InlineQueryResultArticle._();
 
-  factory InlineQueryResultArticle.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return InlineQueryResultArticle(
-      json['id'],
-      json['title'],
-      InputMessageContent.fromJson(json['input_message_content']),
-      replyMarkup: InlineKeyboardMarkup.fromJson(json['reply_markup']),
-      url: json['url'],
-      hideUrl: json['hide_url'],
-      description: json['description'],
-      thumbUrl: json['thumb_url'],
-      thumbWidth: json['thumb_width'],
-      thumbHeight: json['thumb_height'],
-    );
-  }
-
-  Map toJson() {
-    var data = <String, dynamic>{};
-    data['type'] = type;
-    data['id'] = id;
-    data['title'] = title;
-    data['input_message_content'] = inputMessageContent;
-    if (replyMarkup != null) data['reply_markup'] = replyMarkup;
-    if (url != null) data['url'] = url;
-    if (hideUrl != null) data['hide_url'] = hideUrl;
-    if (description != null) data['description'] = description;
-    if (thumbUrl != null) data['thumb_url'] = thumbUrl;
-    if (thumbWidth != null) data['thumCbWidth'] = thumbWidth;
-    if (thumbHeight != null) data['thumb_height'] = thumbHeight;
-    return data;
-  }
+  InlineQueryResultArticle(
+    this.id,
+    this.title,
+    this.inputMessageContent, {
+    this.replyMarkup,
+    this.url,
+    this.hideUrl,
+    this.description,
+    this.thumbUrl,
+    this.thumbWidth,
+    this.thumbHeight,
+  });
 }

@@ -3,26 +3,12 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:http/http.dart';
+import 'package:kson/kson.dart';
 
 import '../../../dart_telegram_bot.dart';
 
 class TGAPIClient {
   static final BASE_URL = 'api.telegram.org';
-
-  static final _typeFactories = {
-    'User': (j) => User.fromJson(j),
-    'List<Update>': (j) => Update.listFromJsonArray(j),
-    'Message': (j) => Message.fromJson(j),
-    'List<Message>': (j) => Message.listFromJsonArray(j),
-    'UserProfilePhotos': (j) => UserProfilePhotos.fromJson(j),
-    'File': (j) => File.fromJson(j),
-    'List<ChatMember>': (j) => ChatMember.listFromJsonArray(j),
-    'List<BotCommand>': (j) => BotCommand.listFromJsonArray(j),
-    'ChatMember': (j) => ChatMember.fromJson(j),
-    'Poll': (j) => Poll.fromJson(j),
-    'StickerSet': (j) => StickerSet.fromJson(j),
-    'Chat': (j) => Chat.fromJson(j),
-  };
 
   var _client = Client();
 
@@ -66,6 +52,7 @@ class TGAPIClient {
   }
 
   Future<T> apiCall<T>(String token, String method, [Map<String, dynamic> query]) async {
+    var kson = Kson();
     var files = <String, HttpFile>{};
     if (query != null) {
       // Maybe improve this part
@@ -74,7 +61,7 @@ class TGAPIClient {
         ..updateAll((k, v) => v is HttpFile && v.token != null ? v.token : v) // Take the tokens from HttpFiles
         ..forEach((k, v) => {if (v is HttpFile) files[k] = v}) // Take the HttpFile away from the query
         ..removeWhere((k, v) => v is HttpFile) // Then remove them
-        ..updateAll((k, v) => v is List ? json.encode(v) : '${v}'); // Convert all lists to json array
+        ..updateAll((k, v) => kson.toJson(v));
     }
 
     var jsonResp = await _execute(token, method, query, files);
@@ -89,13 +76,8 @@ class TGAPIClient {
       return result;
     }
 
-    if (!_typeFactories.containsKey('${T}')) {
-      throw UnsupportedTypeException('Type ${T} is not supported yet');
-    }
-
     try {
-      var finalResult = _typeFactories[T.toString()](result);
-      return finalResult;
+      return kson.deserialize<T>(result);
     } catch (error, s) {
       print('$error\n$s');
       throw APIException('Unsupported API entity', (result as List).last['update_id'], query, method);

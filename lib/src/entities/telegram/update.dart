@@ -1,53 +1,42 @@
 part of '../../entities.dart';
 
 class Update {
+  @SerialName('stopwatch')
   Stopwatch stopwatch;
+
+  @SerialName('update_id')
   int updateId;
+
+  @SerialName('message')
   Message message;
+
+  @SerialName('edited_message')
   Message editedMessage;
+
+  @SerialName('channel_post')
   Message channelPost;
+
+  @SerialName('edited_channel_post')
   Message editedChannelPost;
+
+  @SerialName('inline_query')
   InlineQuery inlineQuery;
+
+  @SerialName('chosen_inline_result')
   ChosenInlineResult chosenInlineResult;
+
+  @SerialName('callback_query')
   CallbackQuery callbackQuery;
+
+  @SerialName('shipping_query')
   ShippingQuery shippingQuery;
+
+  @SerialName('pre_checkout_query')
   PreCheckoutQuery preCheckoutQuery;
+
+  @SerialName('poll')
   Poll poll;
+
+  @SerialName('poll_answer')
   PollAnswer pollAnswer;
-
-  Update(this.updateId,
-      {this.message,
-      this.editedMessage,
-      this.channelPost,
-      this.editedChannelPost,
-      this.inlineQuery,
-      this.chosenInlineResult,
-      this.callbackQuery,
-      this.shippingQuery,
-      this.preCheckoutQuery,
-      this.poll,
-      this.pollAnswer}) {
-    stopwatch = Stopwatch()..start();
-  }
-
-  factory Update.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return Update(json['update_id'],
-        message: Message.fromJson(json['message']),
-        editedMessage: Message.fromJson(json['edited_message']),
-        channelPost: Message.fromJson(json['channel_post']),
-        editedChannelPost: Message.fromJson(json['edited_channel_post']),
-        inlineQuery: InlineQuery.fromJson(json['inline_query']),
-        chosenInlineResult: ChosenInlineResult.fromJson(json['chosen_inline_result']),
-        callbackQuery: CallbackQuery.fromJson(json['callback_query']),
-        shippingQuery: ShippingQuery.fromJson(json['shipping_query']),
-        preCheckoutQuery: PreCheckoutQuery.fromJson(json['pre_checkout_query']),
-        poll: Poll.fromJson(json['poll']),
-        pollAnswer: PollAnswer.fromJson(json['poll_answer']));
-  }
-
-  static List<Update> listFromJsonArray(List<dynamic> array) {
-    if (array == null) return null;
-    return List.generate(array.length, (i) => Update.fromJson(array[i]));
-  }
 }

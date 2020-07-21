@@ -1,31 +1,27 @@
 part of '../../entities.dart';
 
 class InputMediaAudio extends InputMedia {
+  @SerialName('type')
   String type;
+
+  @SerialName('media')
   String media;
+
+  @SerialName('thumb')
   HttpFile thumb;
+
+  @SerialName('caption')
   String caption;
+
+  @SerialName('parse_mode')
   String parseMode;
+
+  @SerialName('duration')
   int duration;
+
+  @SerialName('performer')
   String performer;
+
+  @SerialName('title')
   String title;
-
-  InputMediaAudio(
-      {this.type, this.media, this.thumb, this.caption, this.parseMode, this.duration, this.performer, this.title});
-
-  factory InputMediaAudio.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
-    return InputMediaAudio(
-        type: json['type'],
-        media: json['media'],
-        thumb: json['thumb'],
-        caption: json['caption'],
-        parseMode: json['parse_mode'],
-        duration: json['duration'],
-        performer: json['performer'],
-        title: json['title']);
-  }
-
-// TODO implement toJson
-
 }
