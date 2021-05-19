@@ -10,7 +10,7 @@ import 'package:logging/logging.dart';
 class TGAPIClient {
   static final log = Logger('TGAPIClient');
 
-  static final BASE_URL = 'api.telegram.org';
+  static late final String BASE_URL;
 
   static final _typeFactories = {
     'User': (d) => User.fromJson(d),
@@ -28,6 +28,10 @@ class TGAPIClient {
   };
 
   Client? _coreClient;
+
+  TGAPIClient(String url) {
+    BASE_URL = url;
+  }
 
   Client get _client {
     _coreClient ??= Client();

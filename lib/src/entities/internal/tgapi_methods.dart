@@ -5,12 +5,13 @@ import 'package:dart_telegram_bot/src/entities/internal/tgapi_client.dart';
 import 'package:dart_telegram_bot/telegram_entities.dart';
 
 class TGAPIMethods {
-  final _client = TGAPIClient();
+  late final TGAPIClient _client;
 
   late String _token;
 
-  TGAPIMethods(String token) {
+  TGAPIMethods(String token, String url) {
     _token = token;
+    _client = TGAPIClient(url);
   }
 
   void closeClient() => _client.close();

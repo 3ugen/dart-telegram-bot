@@ -13,6 +13,7 @@ class Bot extends TGAPIMethods {
   final Map<String, Future Function(Bot, Update)> _commandCallbacks = {};
 
   final int _timeout;
+  final String _url;
 
   bool _isRunning = false;
   int _offset = 0;
@@ -26,6 +27,7 @@ class Bot extends TGAPIMethods {
   int get offset => _offset;
 
   int? get timeout => _timeout;
+  String? get url => _url;
 
   int? get id => _id;
 
@@ -33,10 +35,10 @@ class Bot extends TGAPIMethods {
 
   String? get username => _username;
 
-  Bot._(String token, this._timeout) : super(token);
+  Bot._(String token, this._timeout, this._url) : super(token, _url);
 
-  static Future<Bot> fromToken(String token, {int timeout = 10}) async {
-    var bot = Bot._(token, timeout);
+  static Future<Bot> fromToken(String token, {int timeout = 10, String url = 'api.telegram.org'}) async {
+    var bot = Bot._(token, timeout, url);
     await bot.updateMe();
     return bot;
   }
